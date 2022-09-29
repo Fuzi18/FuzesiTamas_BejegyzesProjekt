@@ -37,5 +37,12 @@ public class Bejegyzes {
     public LocalDateTime getSzerkesztve() {
         return szerkesztve;
     }
+    public void like(){
+        likeok+=1;
+    }
 
+    @Override
+    public String toString() {
+        return String.format("%s - %d - %d \n Szerkeztve: %s \n %s",szerzo,likeok,letrejott,getSzerkesztve(),tartalom);
+    }
 }
