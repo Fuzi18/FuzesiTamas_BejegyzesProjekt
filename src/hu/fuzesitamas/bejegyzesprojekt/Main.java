@@ -2,10 +2,7 @@ package hu.fuzesitamas.bejegyzesprojekt;
 
 import java.io.*;
 import java.nio.Buffer;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     private static List<Bejegyzes> bejegyzesek=new ArrayList<>();
@@ -32,7 +29,27 @@ public class Main {
             System.out.println("hiba történt a beolvasáskor! ");
             e.printStackTrace();
         }
+        randomlikeok();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Adj meg egy szöveget: ");
+        System.out.println("Mi legyen a második bejegyzés tartalma?:  ");
+        String masodiktartalom=sc.nextLine();
+        bejegyzesek.get(1).setTartalom();
+        for (Bejegyzes a:bejegyzesek) {
+            System.out.println(a);
 
+        }
+
+
+    }
+    private static void randomlikeok(){
+        Random rnd=new Random();
+        int likeok=bejegyzesek.size()*20;
+        for (int i = 0; i < likeok; i++) {
+            int random=rnd.nextInt(bejegyzesek.size());
+            bejegyzesek.get(random).getLikeok();
+
+        }
     }
     private static void fajlfelvetel(String fajl) throws  IOException{
         FileReader fr=new FileReader(fajl);
@@ -53,6 +70,10 @@ public class Main {
         for (int i = 0; i < db; i++) {
             System.out.printf("%d. bejegyzés szerzője?: ",(i + 1));
             String szerzo=sc.nextLine();
+            System.out.printf("%d. bejegyzés tartalma?: ",(i + 1));
+            String tartalom=sc.nextLine();
+            Bejegyzes bejegyzes=new Bejegyzes(szerzo, tartalom);
+            bejegyzesek.add(bejegyzes);
 
 
         }
