@@ -3,15 +3,18 @@ package hu.fuzesitamas.bejegyzesprojekt;
 import java.time.LocalDateTime;
 
 public class Bejegyzes {
-    private String szerzo;
-    private String tartalom;
-    private int likeok=0;
-    private LocalDateTime letrejott;
-    private LocalDateTime szerkesztve;
+     String szerzo;
+     String tartalom;
+     int likeok;
+     LocalDateTime letrejott;
+     LocalDateTime szerkesztve;
 
     public Bejegyzes(String szerzo, String tartalom){
         this.szerzo=szerzo;
         this.tartalom=tartalom;
+        this.likeok=0;
+        this.letrejott=LocalDateTime.now();
+        this.szerkesztve=LocalDateTime.now();
     }
 
     public String getSzerzo(){
@@ -21,7 +24,7 @@ public class Bejegyzes {
         return tartalom;
     }
     public void setTartalom(){
-        this.tartalom=tartalom;
+        return;
     }
     public int getLikeok(){
         return likeok;
@@ -34,4 +37,5 @@ public class Bejegyzes {
     public LocalDateTime getSzerkesztve() {
         return szerkesztve;
     }
+
 }
